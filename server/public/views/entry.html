@@ -1,0 +1,57 @@
+<div>
+    <h3>Add Entry</h3>
+    <form ng-submit="vm.addNewEntry(newEntry)">
+        <div>
+            <form>
+                <label for="textarea">Description of Task</label>
+                <textarea rows="1" cols="70" ng-model="newEntry.entry" placeholder="What did you do?"></textarea>
+            </form>
+        </div>
+        <div>
+        <form>
+            <select >
+                <option ng-repeat="project in vm.project.data" value="project_id">{{project.name}}</option>
+            </select>
+
+            <label for="date">Date</label>
+            <input type="date" name="date" ng-model="newEntry.date" />
+            <label for="start_time">Start Time</label>
+            <input type="time" name="start_time" ng-model="newEntry.start_time" />
+            <label for="end_time">End Time</label>
+            <input type="time" name="end_time" ng-model="newEntry.end_time" />
+            <input type="submit" />
+        </form>
+    </div>
+    </form>
+    <table>
+        <h4>History</h4>
+            <thead>
+                <tr>
+                    <th>Entry</th>
+                    <th>Project</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in vm.entry.data">
+                    <td>
+                        {{entry.entry}}
+                    </td>
+                    <td>
+                        {{vm.project.name}}
+                    </td>
+                    <td>
+                        {{entry.date}}
+                    </td>
+                    <td>
+                        {{vm.getHours}}
+                    </td>
+                    <td>
+                        <button ng-click="vm.deleteEntry(entry)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>

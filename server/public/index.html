@@ -9,12 +9,16 @@
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
     <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/project.controller.js"></script>
+    <script src="scripts/controllers/entry.controller.js"></script>
+    <script src="scripts/services/project.service.js"></script>
+    <script src="scripts/services/entry.service.js"></script>
 </head>
 
 <body ng-app="TimeApp">
     <h1>Time Tracker</h1>
     <a href="#!">Add Entry</a>
-    <a href="#!/projects">Projects</a>
+    <a href="#!/project">Projects</a>
     <ng-view></ng-view>
 
 </body>

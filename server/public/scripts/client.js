@@ -5,7 +5,7 @@ app.config(function($routeProvider) {
         templateUrl: '/views/entry.html',
         controller: 'EntryController as vm'
     })
-    $routeProvider.when('/projects', {
+    $routeProvider.when('/project', {
         templateUrl: '/views/projects.html',
         controller: "ProjectController as vm"
     })
