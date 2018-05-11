@@ -1,7 +1,14 @@
 <div>
+    <md-container layout="column" layout-align="center center">
+    <md-form ng-submit="vm.addProject(newProject)">
+    
     <h3>Add Project</h3>
+    <md-input-container>
     <input ng-model="newProject.name" placeholder="Project Name" />
-    <button ng-click="vm.addProject(newProject)">Submit</button>
+    <md-button class="md-primary md-raised" type="submit">Submit</md-button>
+</md-input-container>
+</md-form>
+    <div layout-align="center center">
     <h3>Projects</h3>
     <table>
             <thead>
@@ -17,7 +24,7 @@
                         {{project.name}}
                     </td>
                     <td>
-                        <!-- Select query with a join and sum of hours from the other table -->
+                        {{project.sum}}
                     </td>
                     <td>
                         <button ng-click="vm.deleteProject(project)">Delete</button>
@@ -25,4 +32,6 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</md-container>
 </div>

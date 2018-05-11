@@ -10,12 +10,12 @@
         <div>
         <form>
             <select ng-model="newEntry.project_id">
-                <option selected disabled hidden>Projects</option>
+                <option value="">-- Select Project --</option>
                 <option ng-repeat="project in vm.project.data" ng-value="project.id">{{project.name}}</option>
             </select>
 
             <label for="date">Date</label>
-            <input type="date" name="date" ng-model="newEntry.date" />
+            <md-datepicker type="date" name="date" ng-model="newEntry.date"></md-datepicker>
             <label for="start_time">Start Time</label>
             <input type="time" name="start_time" ng-model="newEntry.start_time" />
             <label for="end_time">End Time</label>
@@ -24,6 +24,7 @@
         </form>
     </div>
     </form>
+    <div layout-align="center center">
     <table>
         <h4>History</h4>
             <thead>
@@ -55,4 +56,5 @@
                 </tr>
             </tbody>
         </table>
+    </div>
 </div>

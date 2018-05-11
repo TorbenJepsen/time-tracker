@@ -1,40 +1,46 @@
 app.service('EntryService', ['$http', function ($http) {
     console.log('EntryService is loaded');
     var self = this;
-    self.entry={data: ''};
-    self.project ={data: ''};
+    self.entry = {
+        entry: '',
+        date: new Date(),
+        start_time: new Date(),
+        end_time: new Date(),
+        hours: ''
+    };
+    self.project = { data: '' };
 
-    self.getEntry = function() {
+    self.getEntry = function () {
         $http({
             method: 'GET',
             url: '/entry'
         })
-        .then(function (response) {
-            self.entry.data = response.data;
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log('Not working', error);
-        })
+            .then(function (response) {
+                self.entry.data = response.data;
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log('Not working', error);
+            })
     };
 
-    self.getProject = function() {
+    self.getProject = function () {
         $http({
             method: 'GET',
             url: '/project'
         })
-        .then(function (response) {
-            self.project.data = response.data;
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log('Not working', error);
-        })
+            .then(function (response) {
+                self.project.data = response.data;
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log('Not working', error);
+            })
     };
 
-    self.addEntry = function(newEntry) {
+    self.addEntry = function (newEntry) {
 
-        let hours = (newEntry.end_time - newEntry.start_time)/(1000*60*60);
+        let hours = (newEntry.end_time - newEntry.start_time) / (1000 * 60 * 60);
         console.log(hours);
         postEntry = {
             entry: newEntry.entry,
@@ -50,13 +56,13 @@ app.service('EntryService', ['$http', function ($http) {
             url: '/entry',
             data: postEntry
         })
-        .then(function (response) {
-            console.log(response)
-            self.getEntry();
-        })
-        .catch(function (error) {
-            console.log('Not working', error);
-        })
+            .then(function (response) {
+                console.log(response)
+                self.getEntry();
+            })
+            .catch(function (error) {
+                console.log('Not working', error);
+            })
     };
 
 }]);

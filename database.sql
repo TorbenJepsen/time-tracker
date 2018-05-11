@@ -7,8 +7,8 @@ CREATE TABLE entries (
     id SERIAL PRIMARY KEY,
     "entry" VARCHAR(140) NOT NULL,
 	"date" DATE NOT NULL DEFAULT CURRENT_DATE ,
-	"start_time" TIME NOT NULL,
-	"end_time" TIME NOT NULL,
-	"hours" INT NOT NULL,
-	"project_name" VARCHAR(140) NOT NULL
+	"start_time" TIMESTAMP NOT NULL,
+	"end_time" TIMESTAMP NOT NULL,
+	"hours" DECIMAL(5,2) NOT NULL,
+	"project_id" INT REFERENCES "projects" ON DELETE CASCADE
 );

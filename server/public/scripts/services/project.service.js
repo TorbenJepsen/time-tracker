@@ -6,7 +6,7 @@ app.service('ProjectService', ['$http', function ($http) {
     self.getProject = function() {
         $http({
             method: 'GET',
-            url: '/project'
+            url: '/hours'
         })
         .then(function (response) {
             self.project.data = response.data;
@@ -16,6 +16,7 @@ app.service('ProjectService', ['$http', function ($http) {
             console.log('Not working', error);
         })
     };
+
 
     self.addProject = function(newProject) {
         $http({

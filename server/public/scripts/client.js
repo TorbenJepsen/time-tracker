@@ -1,4 +1,4 @@
-var app = angular.module('TimeApp', ['ngRoute']);
+var app = angular.module('TimeApp', ['ngRoute', 'ngMaterial']);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/', {
