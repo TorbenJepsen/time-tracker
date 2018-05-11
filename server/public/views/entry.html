@@ -1,6 +1,6 @@
 <div>
     <h3>Add Entry</h3>
-    <form ng-submit="vm.addNewEntry(newEntry)">
+    <form>
         <div>
             <form>
                 <label for="textarea">Description of Task</label>
@@ -9,7 +9,7 @@
         </div>
         <div>
         <form>
-            <select >
+            <select ng-model="newEntry.project_name">
                 <option ng-repeat="project in vm.project.data" value="project_id">{{project.name}}</option>
             </select>
 
@@ -19,7 +19,7 @@
             <input type="time" name="start_time" ng-model="newEntry.start_time" />
             <label for="end_time">End Time</label>
             <input type="time" name="end_time" ng-model="newEntry.end_time" />
-            <input type="submit" />
+            <button ng-click="vm.addEntry(newEntry)">Submit</button>
         </form>
     </div>
     </form>
@@ -40,13 +40,13 @@
                         {{entry.entry}}
                     </td>
                     <td>
-                        {{vm.project.name}}
+                        {{entry.project_name}}
                     </td>
                     <td>
-                        {{entry.date}}
+                        {{entry.date | date: 'fullDate'}}
                     </td>
                     <td>
-                        {{vm.getHours}}
+                        {{entry.hours}}
                     </td>
                     <td>
                         <button ng-click="vm.deleteEntry(entry)">Delete</button>

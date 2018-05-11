@@ -33,6 +33,18 @@ app.service('EntryService', ['$http', function ($http) {
     };
 
     self.addEntry = function(newEntry) {
+        console.log(newEntry);
+        let hours = newEntry.start_time - newEntry.end_time/(1000*60*60);
+        console.log(hours);
+        newEntry = {
+            entry: '',
+            date: '',
+            start_time: '',
+            end_time: '',
+            hours: '',
+            project_name: ''
+        };
+        console.log(newEntry);
         $http({
             method: 'POST',
             url: '/entry',

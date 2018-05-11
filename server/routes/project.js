@@ -14,5 +14,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+    const project = req.body;
+    pool.query(`INSERT INTO "projects" ("name")
+                VALUES ($1);`, [project.name])
+        .then(() => {
+            res.sendStatus(200);
+            console.log(project);
+        })
+        .catch((error) => {
+            console.log('error with SQL INSERT', error);
+            res.sendStatus(500);
+        });
+});
+
 
 module.exports = router;
