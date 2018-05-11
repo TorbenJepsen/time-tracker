@@ -33,8 +33,8 @@ app.service('EntryService', ['$http', function ($http) {
     };
 
     self.addEntry = function(newEntry) {
-        console.log(newEntry);
-        let hours = newEntry.start_time - newEntry.end_time/(1000*60*60);
+
+        let hours = (newEntry.end_time - newEntry.start_time)/(1000*60*60);
         console.log(hours);
         postEntry = {
             entry: newEntry.entry,
@@ -42,7 +42,7 @@ app.service('EntryService', ['$http', function ($http) {
             start_time: newEntry.start_time,
             end_time: newEntry.end_time,
             hours: hours,
-            project_name: newEntry.project_name
+            project_id: newEntry.project_id
         };
         console.log(newEntry);
         $http({
