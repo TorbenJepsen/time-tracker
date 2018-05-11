@@ -36,19 +36,19 @@ app.service('EntryService', ['$http', function ($http) {
         console.log(newEntry);
         let hours = newEntry.start_time - newEntry.end_time/(1000*60*60);
         console.log(hours);
-        newEntry = {
-            entry: '',
-            date: '',
-            start_time: '',
-            end_time: '',
-            hours: '',
-            project_name: ''
+        postEntry = {
+            entry: newEntry.entry,
+            date: newEntry.date,
+            start_time: newEntry.start_time,
+            end_time: newEntry.end_time,
+            hours: hours,
+            project_name: newEntry.project_name
         };
         console.log(newEntry);
         $http({
             method: 'POST',
             url: '/entry',
-            data: newEntry
+            data: postEntry
         })
         .then(function (response) {
             console.log(response)
