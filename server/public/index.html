@@ -13,20 +13,35 @@
     <script src="vendors/angular-aria.js"></script>
     <script src="vendors/angular-messages.js"></script>
     <script src="vendors/angular-material.js"></script>
+    <script src="vendors/md-data-table.js"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/controllers/project.controller.js"></script>
     <script src="scripts/controllers/entry.controller.js"></script>
     <script src="scripts/services/project.service.js"></script>
     <script src="scripts/services/entry.service.js"></script>
+    <link rel="stylesheet" href="vendors/md-data-table.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<div class="container" layout-align="center center">
+
 <body ng-app="TimeApp">
-    <h1>Time Tracker</h1>
-    <a href="#!">Add Entry</a>
-    <a href="#!/project">Projects</a>
+        
+
+    
+    <!-- <md-content class="md-padding"> -->
+        <div class="header">
+            <h1><b>Time Tracker</b></h1>
+        </div>
+<md-nav-bar md-selected-nav-item="currentNavItem" class="md-tall md-primary">
+        
+     <md-nav-item md-nav-href="#!" name="Add Entry">Add Entry</md-nav-item>
+    <md-nav-item md-nav-href="#!/project" name="Project">Projects</md-nav-item>
+</md-nav-bar>
+
+        
+        
+<!-- </md-content> -->
     <ng-view></ng-view>
-</div>
+
 </body>
 
 </html>
