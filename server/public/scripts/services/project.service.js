@@ -11,6 +11,8 @@ app.service('ProjectService', ['$http', function ($http) {
             .then(function (response) {
                 self.project.data = response.data;
                 console.log(response.data);
+                self.createChart(self.project.data);
+
             })
             .catch(function (error) {
                 console.log('Not working', error);
@@ -49,6 +51,32 @@ app.service('ProjectService', ['$http', function ($http) {
                 alert('Something went wrong! Check the server.');
             });
     }
+
+    self.createChart = function (data) {
+
+        var arrData = new Array();
+        var arrLabels = new Array();
+
+        data.map = function(item) {
+            arrData.push(item.sum);
+            arrLabels.push(item.name);
+
+            self.data = [];
+            self.labels = [];
+    
+            self.data.push(arrData);
+    
+            for (let i = 0; i < arrLabels.length; i++) {
+                self.labels.push(arrlabels[i]);
+            }
+            console.log(self.data, self.labels);
+
+        
+        };
+
+
+            
+        };
 
 
 }]);
