@@ -1,5 +1,11 @@
 .header {
-    background-color: slategray;
+
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    font-family: 'Cinzel', serif, ;
+
+}
+
+.container {
+    padding: 15px;
 }

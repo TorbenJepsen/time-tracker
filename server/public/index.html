@@ -20,6 +20,7 @@
     <script src="scripts/services/project.service.js"></script>
     <script src="scripts/services/entry.service.js"></script>
     <link rel="stylesheet" href="vendors/md-data-table.css">
+    <link href="https://fonts.googleapis.com/css?family=Amiri|Cinzel|Gothic+A1|Merriweather|Playfair+Display+SC|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -32,16 +33,17 @@
             <h1><b>Time Tracker</b></h1>
         </div>
 <md-nav-bar md-selected-nav-item="currentNavItem" class="md-tall md-primary">
+   
         
      <md-nav-item md-nav-href="#!" name="Add Entry">Add Entry</md-nav-item>
     <md-nav-item md-nav-href="#!/project" name="Project">Projects</md-nav-item>
 </md-nav-bar>
-
+<div class="container">
         
         
 <!-- </md-content> -->
     <ng-view></ng-view>
-
+</div>
 </body>
 
 </html>

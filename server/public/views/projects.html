@@ -6,8 +6,11 @@
     <form ng-submit="vm.addProject(newProject)">
     <md-input-container>
     <input ng-model="newProject.name" placeholder="Project Name" />
+</md-input-container>
+    <md-input-container>
     <md-button class="md-primary md-raised" type="submit">Submit</md-button>
 </md-input-container>
+
 </form>
 </md-container>
   
@@ -30,7 +33,7 @@
                         {{project.sum}}
                     </td>
                     <td md-cell>
-                        <md-button class="md-primary md-raised" ng-click="vm.deleteProject(project)">Delete</md-button>
+                        <md-button class="md-warn md-raised" ng-click="vm.deleteProject(project)">Delete</md-button>
                     </td>
                 </tr>
             </tbody>

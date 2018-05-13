@@ -28,5 +28,20 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    console.log(req.params);
+  const project= req.params.id;
+
+  let queryText = `DELETE FROM "projects" WHERE "id" LIKE '$1'`;
+    pool.query(queryText,[project])
+    .then((results) => {
+        res.sendStatus(200);
+
+    })
+    .catch((error) => {
+        console.log('error with SQL DELETE', error);
+        res.sendStatus(500);
+    })
+})
 
 module.exports = router;

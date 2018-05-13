@@ -7,5 +7,5 @@ app.controller('ProjectController', ['ProjectService', function(ProjectService) 
     self.getProject = ProjectService.getProject;
     self.getProject();
     self.addProject = ProjectService.addProject;
-    
+    self.deleteProject = ProjectService.deleteProject;
 }]);
