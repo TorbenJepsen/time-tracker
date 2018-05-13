@@ -5,7 +5,7 @@ var pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log('GET /crew');
-    pool.query(`SELECT "entries"."entry", "entries"."date", "entries"."hours", "projects"."name" AS "project_name"
+    pool.query(`SELECT "entries"."id", "entries"."entry", "entries"."date", "entries"."hours", "projects"."name" AS "project_name"
     FROM "entries"
     JOIN "projects" ON "entries"."project_id" = "projects"."id";`)
     .then((results) => {
@@ -29,6 +29,20 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+router.delete('/', (req, res) => {
+    const entry = req.query.id;
+    console.log(req.query.id)
+    pool.query(`DELETE FROM "entries" WHERE "id" = ${entry}`)
+        .then((results) => {
+            res.sendStatus(200);
+
+        })
+        .catch((error) => {
+            console.log('error with SQL DELETE', error);
+            res.sendStatus(500);
+        })
+})
 
 
 

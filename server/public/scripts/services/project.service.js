@@ -34,6 +34,7 @@ app.service('ProjectService', ['$http', function ($http) {
     };
 
     self.deleteProject = function (project) {
+        console.log(project);
         $http({
             method: 'DELETE',
             url: '/project',

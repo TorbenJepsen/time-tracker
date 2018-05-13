@@ -28,11 +28,10 @@ router.post('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
-    console.log(req.params);
-  const project= req.params.id;
+router.delete('/', (req, res) => {
+  const project= req.query.name;
 
-  let queryText = `DELETE FROM "projects" WHERE "id" = '$1'`;
+  let queryText = `DELETE FROM "projects" WHERE "name" = ($1)`;
     pool.query(queryText,[project])
     .then((results) => {
         res.sendStatus(200);

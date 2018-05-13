@@ -70,4 +70,18 @@ app.service('EntryService', ['$http', function ($http) {
         };
     };
 
+    self.deleteEntry = function (entry) {
+        $http({
+            method: 'DELETE',
+            url: '/entry',
+            params: entry
+        })
+            .then(function (response) {
+                self.getEntry();
+            })
+            .catch(function (error) {
+                console.log('Nope Not Working', error);
+            })
+    }
+
 }]);
