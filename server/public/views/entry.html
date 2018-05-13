@@ -1,21 +1,24 @@
 <div>
 
     <h3>Add Entry</h3>
+    
     <form>
-
-
-        <md-input-container>
+        <div layout="row" layout-align="center">
+        <md-input-container flex="50">
             <label for="entry">Description of Task</label>
             <input type="text" ng-model="vm.newEntry.entry" placeholder="What did you do?" required="true" />
         </md-input-container>
+    </div>
 
-
-        <div layout="row" flex>
-            <md-input-container>
+    <div layout="column">
+        <div layout="row" layout-align="center">
+            <md-input-container flex="50" >
                 <md-select ng-model="vm.newEntry.project_id" placeholder="Select Project" required="true">
                     <md-option ng-repeat="project in vm.project.data" ng-value="project.id">{{project.name}}</md-option>
                 </md-select>
-            </md-input-container>
+           </md-input-container>
+        </div>
+        <div layout="row" flex="75" layout-align="center center" ng-hide="!vm.newEntry.project_id">
             <md-input-container>
                 <label for="date">Date</label>
                 <md-datepicker type="date" name="date" ng-model="vm.newEntry.date" ng-required="true"></md-datepicker>
@@ -32,6 +35,8 @@
                 <md-button class="md-primary md-raised" ng-click="vm.addEntry(vm.newEntry)">Submit</md-button>
             </md-input-container>
         </div>
+        </div>
+    </div>
     </form>
     
 </div>
