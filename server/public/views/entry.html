@@ -6,31 +6,31 @@
 
         <md-input-container>
             <label for="entry">Description of Task</label>
-            <input type="text" ng-model="newEntry.entry" placeholder="What did you do?" />
+            <input type="text" ng-model="vm.newEntry.entry" placeholder="What did you do?" required="true"/>
         </md-input-container>
 
 
 
         <md-input-container>
-            <select ng-model="newEntry.project_id">
+            <select ng-model="vm.newEntry.project_id" required="true">
                 <option value="">-- Select Project --</option>
                 <option ng-repeat="project in vm.project.data" ng-value="project.id">{{project.name}}</option>
             </select>
         </md-input-container>
         <md-input-container>
             <label for="date">Date</label>
-            <md-datepicker type="date" name="date" ng-model="newEntry.date"></md-datepicker>
+            <md-datepicker type="date" name="date" ng-model="vm.newEntry.date" ng-required="true"></md-datepicker>
         </md-input-container>
         <md-input-container>
             <label for="start_time">Start Time</label>
-            <input type="time" ng-model="newEntry.start_time"/>
+            <input type="time" ng-model="vm.newEntry.start_time" required="true"/>
         </md-input-container>
         <md-input-container>
             <label for="end_time">End Time</label>
-            <input type="time" name="end_time" ng-model="newEntry.end_time" />
+            <input type="time" name="end_time" ng-model="vm.newEntry.end_time" required="true"/>
         </md-input-container>
         <md-input-container>
-            <md-button class="md-primary md-raised" ng-click="vm.addEntry(newEntry)">Submit</md-button>
+            <md-button class="md-primary md-raised" ng-click="vm.addEntry(vm.newEntry)">Submit</md-button>
         </md-input-container>
     </form>
 </div>

@@ -11,4 +11,5 @@ app.controller('EntryController', ['EntryService', function (EntryService) {
     self.project = EntryService.project;
     self.getProject = EntryService.getProject;
     self.getProject();
+    self.newEntry = EntryService.createEmptyEntry();
 }]);

@@ -1,13 +1,7 @@
 app.service('EntryService', ['$http', function ($http) {
     console.log('EntryService is loaded');
     var self = this;
-    self.entry = {
-        entry: '',
-        date: new Date(),
-        start_time: new Date(),
-        end_time: new Date(),
-        hours: ''
-    };
+    self.entry = { data: ''};
     self.project = { data: '' };
 
     self.getEntry = function () {
@@ -59,10 +53,21 @@ app.service('EntryService', ['$http', function ($http) {
             .then(function (response) {
                 console.log(response)
                 self.getEntry();
+                self.createEmptyEntry();
             })
             .catch(function (error) {
                 console.log('Not working', error);
             })
+    };
+
+    self.createEmptyEntry = function () {
+        return {
+            entry: '',
+            date: new Date(),
+            start_time: '',
+            end_time: '',
+            hours: ''
+        };
     };
 
 }]);

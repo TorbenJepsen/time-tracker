@@ -32,7 +32,7 @@ router.delete('/:id', (req, res) => {
     console.log(req.params);
   const project= req.params.id;
 
-  let queryText = `DELETE FROM "projects" WHERE "id" LIKE '$1'`;
+  let queryText = `DELETE FROM "projects" WHERE "id" = '$1'`;
     pool.query(queryText,[project])
     .then((results) => {
         res.sendStatus(200);

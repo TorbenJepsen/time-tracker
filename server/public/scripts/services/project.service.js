@@ -37,7 +37,7 @@ app.service('ProjectService', ['$http', function ($http) {
         $http({
             method: 'DELETE',
             url: '/project',
-            params: project.id
+            params: project
 
         })
             .then((response) => {
